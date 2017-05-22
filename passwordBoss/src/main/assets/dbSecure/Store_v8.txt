@@ -1,0 +1,12 @@
+﻿CREATE TABLE IF NOT EXISTS `secure_item_stats` (
+  `secure_item_id` VARCHAR NOT NULL PRIMARY KEY ,
+  `do_not_show` BOOLEAN DEFAULT 0,
+  `last_password_change` DATETIME ,
+  `has_duplicate` BOOLEAN DEFAULT 0,
+  `is_weak` BOOLEAN DEFAULT 0,
+  `last_alert` DATETIME ,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME ,
+  FOREIGN KEY(`secure_item_id`) REFERENCES secure_item(`id`)
+);
+ALTER TABLE `site` ADD COLUMN `multi_step_login` BOOLEAN DEFAULT 0;

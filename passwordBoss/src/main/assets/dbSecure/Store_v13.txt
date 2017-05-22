@@ -1,0 +1,1 @@
+﻿ALTER TABLE `site` ADD COLUMN `sent_status` VARCHAR DEFAULT 'pending_send';

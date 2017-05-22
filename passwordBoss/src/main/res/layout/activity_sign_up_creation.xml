@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/padding_double"
+            android:paddingRight="@dimen/padding_double">
+
+
+            <ImageView
+                android:id="@+id/ac_sue_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ac_logo"
+                tools:ignore="ContentDescription" />
+
+
+            <ProgressBar
+                style="@style/AppProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/margin_double"
+                android:layout_marginTop="@dimen/margin_double" />
+
+
+            <TextView
+                fontPath="@string/font_semibold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin"
+                android:gravity="center"
+                android:paddingLeft="@dimen/padding_double"
+                android:paddingRight="@dimen/padding_double"
+                android:text="@string/CreateAccountv3Wait"
+                android:textColor="@color/text_color_selector"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+    <!--it's fake button to prevent flickering UI during screens transitions -->
+    <Button
+        style="@style/AppButton.Bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:visibility="invisible" />
+
+</LinearLayout>

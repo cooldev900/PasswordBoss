@@ -1,0 +1,2 @@
+﻿ALTER TABLE `secure_item` ADD COLUMN `last_access` DATETIME;
+ALTER TABLE `secure_item` ADD COLUMN `access_count` UNSIGNED DEFAULT 0;

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_security_item_name" />
+
+    <include layout="@layout/include_security_item_folder" />
+
+    <include layout="@layout/include_security_item_type" />
+
+    <include layout="@layout/include_secure_item_insurance_company" />
+
+    <com.passwordboss.android.widget.AppLabelInputLayout
+        style="@style/AppLabelInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ItemFieldPolicyNumber">
+
+        <EditText
+            android:id="@+id/fr_siin_policy_number"
+            style="@style/SecureItem.Input.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapCharacters"
+            tools:ignore="TextFields" />
+    </com.passwordboss.android.widget.AppLabelInputLayout>
+
+    <com.passwordboss.android.widget.AppLabelInputLayout
+        style="@style/AppLabelInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ItemFieldAgent">
+
+        <EditText
+            android:id="@+id/fr_siin_agent"
+            style="@style/SecureItem.Input.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName" />
+    </com.passwordboss.android.widget.AppLabelInputLayout>
+
+    <include layout="@layout/include_secure_item_phone_number" />
+
+    <com.passwordboss.android.widget.AppLabelInputLayout
+        style="@style/AppLabelInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ItemFieldDeductible">
+
+        <EditText
+            android:id="@+id/fr_siin_deductible"
+            style="@style/SecureItem.Input.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences" />
+    </com.passwordboss.android.widget.AppLabelInputLayout>
+
+    <com.passwordboss.android.widget.AppLabelInputLayout
+        style="@style/AppLabelInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ItemFieldRenewalDate">
+
+        <EditText
+            android:id="@+id/fr_siin_renewal_date"
+            style="@style/SecureItem.Input.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences"
+            tools:ignore="TextFields" />
+    </com.passwordboss.android.widget.AppLabelInputLayout>
+
+
+    <include layout="@layout/include_security_item_notes" />
+
+
+</LinearLayout>

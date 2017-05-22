@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:id="@android:id/text1"
+    style="@style/SecureItem.Input.EditText"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@null"
+    android:clickable="false"
+    android:drawableRight="@drawable/ic_chevron_bottom"
+    android:ellipsize="marquee"
+    android:singleLine="true"
+    tools:ignore="RtlHardcoded" />

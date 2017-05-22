@@ -1,0 +1,91 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_window_white"
+    tools:context=".fragment.ChangePinFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/fr_chpn_visible_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/fr_chpn_visible_symbol_01"
+                style="@style/AppPinInputField" />
+
+            <TextView
+                android:id="@+id/fr_chpn_visible_symbol_02"
+                style="@style/AppPinInputField" />
+
+            <TextView
+                android:id="@+id/fr_chpn_visible_symbol_03"
+                style="@style/AppPinInputField" />
+
+            <TextView
+                android:id="@+id/fr_chpn_visible_symbol_04"
+                style="@style/AppPinInputField" />
+        </LinearLayout>
+
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/fr_chpn_label_enter_pin"
+                fontPath="@string/font_semibold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_half"
+                android:layout_marginTop="@dimen/margin"
+                android:gravity="center"
+                android:paddingLeft="@dimen/padding_double"
+                android:paddingRight="@dimen/padding_double"
+                android:text="@string/EnterExistingPin"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/fr_chpn_label_error"
+                fontPath="@string/font_semibold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_half"
+                android:layout_marginTop="@dimen/margin"
+                android:gravity="center"
+                android:paddingLeft="@dimen/padding_double"
+                android:paddingRight="@dimen/padding_double"
+                android:text="@string/IncorrectPin"
+                android:textColor="#f00"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+        </FrameLayout>
+
+
+        <com.passwordboss.android.widget.AppPinKeyboardView
+            android:id="@+id/fr_chpn_keyboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/fr_chpn_button_delete"
+        style="@style/AppButton.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:text="@string/Delete"
+        tools:ignore="RtlHardcoded" />
+</FrameLayout>

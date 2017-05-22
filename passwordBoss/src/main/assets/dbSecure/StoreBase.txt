@@ -1,0 +1,270 @@
+﻿CREATE TABLE IF NOT EXISTS `settings` (
+  `key` VARCHAR NOT NULL PRIMARY KEY,
+  `value` VARCHAR ,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME ,
+  `active` BOOLEAN DEFAULT 1
+);
+
+CREATE TABLE IF NOT EXISTS `storage_region` (
+  `uuid` VARCHAR NOT NULL PRIMARY KEY,
+  `name` VARCHAR ,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME ,
+  `active` BOOLEAN DEFAULT 1
+);
+
+CREATE TABLE IF NOT EXISTS `feature` (
+  `uuid` VARCHAR NOT NULL PRIMARY KEY ,
+  `identifier` VARCHAR,
+  `name` VARCHAR,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME ,
+  `active` BOOLEAN DEFAULT 1
+);
+
+CREATE TABLE IF NOT EXISTS `feature_group` (
+  `uuid` VARCHAR NOT NULL PRIMARY KEY ,
+  `name` VARCHAR,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME ,
+  `active` BOOLEAN DEFAULT 1
+);
+
+CREATE TABLE IF NOT EXISTS `feature_group_feature` (
+  `feature_uuid` VARCHAR NOT NULL,
+  `feature_group_uuid` VARCHAR NOT NULL,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME ,
+  `active` BOOLEAN DEFAULT 1,
+  PRIMARY KEY(`feature_uuid`,`feature_group_uuid`),
+  FOREIGN KEY(`feature_uuid`) REFERENCES feature(`uuid`),
+  FOREIGN KEY(`feature_group_uuid`) REFERENCES feature_group(`uuid`)
+);
+
+CREATE TABLE IF NOT EXISTS `user_info` (
+  `email` VARCHAR NOT NULL PRIMARY KEY,
+  `first_name` VARCHAR ,
+  `last_name` VARCHAR ,
+  `public_key` BLOB ,
+  `private_key` BLOB ,
+  `hash` VARCHAR ,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME,
+  `storage_region_uuid` VARCHAR,
+  `subscription` VARCHAR,
+  FOREIGN KEY(`storage_region_uuid`) REFERENCES storage_region(`uuid`)
+);
+
+CREATE TABLE IF NOT EXISTS `user_subscription` (
+  `email` VARCHAR NOT NULL PRIMARY KEY,
+  `subscription_date` DATETIME,
+  `expiration_date` DATETIME,
+  `next_validation_date` DATETIME,
+  `duration` INTEGER ,
+  `description` VARCHAR ,
+  `multiuser` BOOLEAN DEFAULT 0,
+  `name` VARCHAR ,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME
+);
+
+CREATE TABLE IF NOT EXISTS `device` (
+  `installation_id` VARCHAR NOT NULL PRIMARY KEY,
+  `uuid` VARCHAR,
+  `nickname` VARCHAR,
+  `pin_number` INTEGER,
+  `mobile_no` INTEGER,
+  `latest_sync` DATETIME,
+  `created_date` DATETIME,
+  `last_modified_date` DATETIME,
+  `device_category` VARCHAR,
+  `os` VARCHAR,
+  `active` BOOLEAN DEFAULT 1
+);
+
+CREATE TABLE IF NOT EXISTS `favorite` (
+  `url` VARCHAR NOT NULL PRIMARY KEY,
+  `name` VARCHAR ,
+  `uuid` VARCHAR ,
+  `hash` VARCHAR ,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME ,
+  `order` INTEGER ,
+  `active` BOOLEAN DEFAULT 1
+);
+
+CREATE TABLE IF NOT EXISTS `secure_item_type` (
+  `uuid` VARCHAR ,
+  `name` VARCHAR NOT NULL PRIMARY KEY,
+  `storage_format` VARCHAR ,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME,
+  `order` INTEGER ,
+  `active` BOOLEAN DEFAULT 1
+);
+
+CREATE TABLE IF NOT EXISTS `category` (
+  `id` VARCHAR NOT NULL PRIMARY KEY,
+  `name` VARCHAR,
+  `deletable` BOOLEAN DEFAULT 1,
+  `use_secure_browser` BOOLEAN DEFAULT 0,
+  `uuid` VARCHAR,
+  `hash` VARCHAR,
+  `created_date` DATETIME,
+  `last_modified_date` DATETIME,
+  `order` INTEGER ,
+  `active` BOOLEAN DEFAULT 1
+);
+
+CREATE TABLE IF NOT EXISTS `site` (
+  `id` VARCHAR NOT NULL PRIMARY KEY,/* za sistemske site-ove ovdje upisati vrijednost uuid*/
+  `uuid` VARCHAR, /* za sistemske site-ove ovo upisati u id*/
+  `hash` VARCHAR,
+  `category_id` VARCHAR,
+  `name` VARCHAR,
+  `friendly_name` VARCHAR ,
+  `validated` BOOLEAN DEFAULT 0,
+  `recommended` BOOLEAN DEFAULT 0,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME ,
+  `order` INTEGER DEFAULT 0,
+  `active` BOOLEAN DEFAULT 1,
+  FOREIGN KEY(`category_id`) REFERENCES category(`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `site_image_size` (
+  `id` VARCHAR NOT NULL PRIMARY KEY,/* za sistemske site-ove ovdje upisati vrijednost uuid*/
+  `uuid` VARCHAR, /* za sistemske site-ove ovo upisati u id*/
+  `hash` VARCHAR ,
+  `name` VARCHAR ,
+  `height` INTEGER ,
+  `width` INTEGER ,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME ,
+  `active` BOOLEAN DEFAULT 1
+);
+
+CREATE TABLE IF NOT EXISTS `site_image` (
+  `id` VARCHAR NOT NULL PRIMARY KEY,/* za sistemske site-ove ovdje upisati vrijednost uuid*/
+  `uuid` VARCHAR, /* za sistemske site-ove ovo upisati u id*/
+  `hash` VARCHAR ,
+  `site_id` VARCHAR,
+  `size_id` VARCHAR,
+  `url` VARCHAR ,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME ,
+  `active` BOOLEAN DEFAULT 1,
+  FOREIGN KEY(`site_id`) REFERENCES site(`id`),
+  FOREIGN KEY(`size_id`) REFERENCES site_image_size(`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `site_uri` (
+  `uri` VARCHAR NOT NULL,
+  `behavior` VARCHAR ,
+  `hash` VARCHAR ,
+  `verified_count` INTEGER DEFAULT 0,
+  `is_trivial` BOOLEAN DEFAULT 0,
+  `type` VARCHAR NOT NULL,
+  `host` VARCHAR ,
+  `lookup_method` VARCHAR ,
+  `site_id` VARCHAR NOT NULL,
+  `uuid` VARCHAR ,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME ,
+  `active` BOOLEAN DEFAULT 1,
+  PRIMARY KEY(`uri`, `site_id`, `type`) ON CONFLICT REPLACE ,
+  FOREIGN KEY(`site_id`) REFERENCES site(`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `site_field` (
+  `identifier` VARCHAR NOT NULL PRIMARY KEY,
+  `uuid` VARCHAR,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME ,
+  `order` INTEGER ,
+  `active` BOOLEAN DEFAULT 1
+);
+
+CREATE TABLE IF NOT EXISTS `site_field_secure_item_type` (
+  `uuid` VARCHAR,
+  `secure_item_type_name` VARCHAR NOT NULL,
+  `site_field_identifier` VARCHAR NOT NULL,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME ,
+  `order` INTEGER ,
+  `active` BOOLEAN DEFAULT 1,
+  PRIMARY KEY(`secure_item_type_name`, `site_field_identifier`),
+  FOREIGN KEY(`secure_item_type_name`) REFERENCES secure_item_type(`name`) ,
+  FOREIGN KEY(`site_field_identifier`) REFERENCES site_field(`identifier`)
+);
+
+CREATE TABLE IF NOT EXISTS `site_field_alias` (
+  `alias` VARCHAR NOT NULL,
+  `site_field_identifier` VARCHAR NOT NULL,
+  `exclusion` BOOLEAN ,
+  `alias_type` VARCHAR NOT NULL,
+  `uuid` VARCHAR ,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME ,
+  `order` INTEGER ,
+  `active` BOOLEAN DEFAULT 1,
+  PRIMARY KEY(`alias`, `site_field_identifier`, `alias_type`),
+  FOREIGN KEY(`site_field_identifier`) REFERENCES site_field(`identifier`)
+);
+
+CREATE TABLE IF NOT EXISTS `secure_item` (
+  `id` VARCHAR NOT NULL PRIMARY KEY ,
+  `category_id` VARCHAR,
+  `data` VARCHAR ,
+  `hash` VARCHAR ,
+  `name` VARCHAR ,
+  `secure_item_type_name` VARCHAR,
+  `site_id` VARCHAR,
+  `uuid` VARCHAR ,
+  `favorite` BOOLEAN DEFAULT 0,
+  `color` INTEGER,
+  `type` VARCHAR,
+  `share` BOOLEAN DEFAULT 0,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME ,
+  `order` INTEGER ,
+  `active` BOOLEAN DEFAULT 1,
+  `verified` BOOLEAN DEFAULT 0,
+  FOREIGN KEY(`category_id`) REFERENCES category(`id`) ,
+  FOREIGN KEY(`secure_item_type_name`) REFERENCES secure_item_type(`name`) ,
+  FOREIGN KEY(`site_id`) REFERENCES site(`id`)
+);
+CREATE INDEX IF NOT EXISTS `secure_item_secure_item_type_name_type` ON `secure_item`(`secure_item_type_name`,`type`);
+
+CREATE TABLE IF NOT EXISTS `secure_item_data` (
+  `secure_item_id` VARCHAR NOT NULL,
+  `identifier` VARCHAR NOT NULL,
+  `value` VARCHAR,
+  `sys_value` VARCHAR,
+  `hash` VARCHAR ,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME ,
+  `order` INTEGER ,
+  `active` BOOLEAN DEFAULT 1,
+  PRIMARY KEY(`secure_item_id`, `identifier`),
+  FOREIGN KEY(`secure_item_id`) REFERENCES secure_item(`id`) ,
+  FOREIGN KEY(`identifier`) REFERENCES site_field(`identifier`)
+);
+
+CREATE TABLE IF NOT EXISTS `share`(
+  `id` VARCHAR NOT NULL PRIMARY KEY ,
+  `data` VARCHAR ,
+  `message` VARCHAR,
+  `status` VARCHAR,
+  `expiration_date` DATETIME,
+  `receiver` VARCHAR,
+  `sender` VARCHAR,
+  `secure_item_id` VARCHAR,
+  `visible` BOOLEAN DEFAULT 1,
+  `uuid` VARCHAR,
+  `created_date` DATETIME,
+  `last_modified_date` DATETIME,
+  `active` BOOLEAN DEFAULT 1,
+  FOREIGN KEY(`secure_item_id`) REFERENCES secure_item(`id`)
+);

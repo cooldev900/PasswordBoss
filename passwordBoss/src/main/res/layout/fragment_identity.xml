@@ -1,0 +1,165 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/background_window_grey"
+              android:orientation="vertical">
+
+    <include layout="@layout/include_request_focus"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingTop="@dimen/padding">
+
+                <ImageView
+                    android:id="@+id/fr_id_avatar"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_01_big"/>
+
+                <ImageView
+                    android:id="@+id/fr_id_star"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin"
+                    android:layout_toRightOf="@+id/fr_id_avatar"
+                    android:src="@drawable/ic_star_green"
+                    android:visibility="invisible"
+                    tools:ignore="RtlHardcoded"/>
+
+                <com.passwordboss.android.widget.AppLabelInputLayout
+                    android:id="@+id/fr_id_label_name"
+                    style="@style/AppLabelInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/fr_id_avatar"
+                    android:layout_marginLeft="@dimen/margin"
+                    android:layout_marginRight="@dimen/margin"
+
+                    android:text="@string/Name">
+
+                    <EditText
+                        android:id="@+id/fr_id_name"
+                        style="@style/SecureItem.Input.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapSentences"/>
+                </com.passwordboss.android.widget.AppLabelInputLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/fr_id_button_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/fr_id_label_name"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_half"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/fr_id_button_choose_picture"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_choose_picture"
+                        android:drawablePadding="@dimen/padding_half"
+                        android:padding="@dimen/padding"
+                        android:text="@string/IdentitiesChoosePicture"
+                        app:theme="@style/AppButton.Colored.Small"
+                        tools:ignore="RtlHardcoded"/>
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/fr_id_default"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/IdentitiesMakeDefault"
+                        android:textColor="@color/textColorAccent"
+                        android:textSize="13sp"
+                        app:buttonTint="@color/colorAccentDark"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/fr_id_button_container"
+                    android:gravity="center"
+                    android:paddingBottom="@dimen/padding_half"
+                    android:paddingLeft="@dimen/padding"
+                    android:paddingRight="@dimen/padding"
+                    android:paddingTop="@dimen/padding"
+                    android:text="@string/IdentitiesAddItems"
+                    android:textColor="@color/textColor"
+                    android:textSize="18sp"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@drawable/fr_id_divider"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_half"
+                android:showDividers="middle">
+
+                <com.passwordboss.android.widget.IdentitySecureItemView
+                    android:id="@+id/fr_id_item_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <com.passwordboss.android.widget.IdentitySecureItemView
+                    android:id="@+id/fr_id_item_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <com.passwordboss.android.widget.IdentitySecureItemView
+                    android:id="@+id/fr_id_item_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <com.passwordboss.android.widget.IdentitySecureItemView
+                    android:id="@+id/fr_id_item_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <com.passwordboss.android.widget.IdentitySecureItemView
+                    android:id="@+id/fr_id_item_company"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <com.passwordboss.android.widget.IdentitySecureItemView
+                    android:id="@+id/fr_id_item_credit_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <com.passwordboss.android.widget.IdentitySecureItemView
+                    android:id="@+id/fr_id_item_bank_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/fr_id_button_save"
+        style="@style/AppButton.Bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="@string/Save"/>
+
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="font_bold">fonts/ProximaNovaAltBold.otf</string>
+    <string name="font_light">fonts/ProximaNovaAltLight.otf</string>
+    <string name="font_regular">fonts/ProximaNovaAltRegular.otf</string>
+    <string name="font_semibold">fonts/ProximaNovaAltSemibold.otf</string>
+</resources>

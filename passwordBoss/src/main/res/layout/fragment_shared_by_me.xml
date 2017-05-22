@@ -1,0 +1,58 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fr_sbm_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_window_white">
+
+        <LinearLayout
+            android:id="@+id/fr_sbm_empty_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_shared_by_me_splash"/>
+
+            <TextView
+                style="@style/Text.Semibold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin"
+                android:text="@string/SharedByMe"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="20sp"/>
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_half"
+                android:gravity="center"
+                android:paddingLeft="@dimen/padding_double"
+                android:paddingRight="@dimen/padding_double"
+                android:text="@string/securelyShareAnyDataInstantlyWithYourTrustedFriendsAndFamily"
+                android:textSize="15sp"/>
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/fr_sbm_button_share_an_item"
+        style="@style/AppButton.Bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="@string/ShareItem"/>
+</FrameLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.passwordboss.android.widget.AppLabelInputLayout style="@style/AppLabelInputLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/DateOfBirth">
+
+    <EditText
+        android:id="@+id/fr_si_date_of_birth"
+        style="@style/SecureItem.Input.EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textCapSentences"
+        tools:ignore="TextFields" />
+</com.passwordboss.android.widget.AppLabelInputLayout>
+
+    

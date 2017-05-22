@@ -1,0 +1,1 @@
+﻿CREATE INDEX IF NOT EXISTS `site_image_site_id` ON `site_image`(`site_id`);

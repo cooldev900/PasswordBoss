@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_security_item_name" />
+
+    <include layout="@layout/include_security_item_folder" />
+
+    <com.passwordboss.android.widget.AppLabelInputLayout
+        style="@style/AppLabelInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ItemFieldHotel">
+
+        <EditText
+            android:id="@+id/fr_sihr_hotel"
+            style="@style/SecureItem.Input.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName" />
+    </com.passwordboss.android.widget.AppLabelInputLayout>
+
+    <com.passwordboss.android.widget.AppLabelInputLayout
+        style="@style/AppLabelInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ItemFieldMembershipNumber">
+
+        <EditText
+            android:id="@+id/fr_sihr_membership_number"
+            style="@style/SecureItem.Input.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapCharacters"
+            tools:ignore="TextFields" />
+    </com.passwordboss.android.widget.AppLabelInputLayout>
+
+    <include layout="@layout/include_secure_item_status_level" />
+
+    <include layout="@layout/include_secure_item_phone_number" />
+
+    <include layout="@layout/include_security_item_notes" />
+
+
+</LinearLayout>

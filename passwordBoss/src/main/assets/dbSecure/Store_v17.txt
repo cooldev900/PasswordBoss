@@ -1,0 +1,541 @@
+﻿/*drop unused tables*/
+DROP TABLE 'site_field_secure_item_type';
+DROP TABLE 'site_field_alias';
+DROP TABLE 'site_field';
+
+/*adding hash columns to each table*/
+ALTER TABLE 'device' ADD COLUMN 'hash' VARCHAR;
+ALTER TABLE 'feature' ADD COLUMN 'hash' VARCHAR;
+ALTER TABLE 'feature_group' ADD COLUMN 'hash' VARCHAR;
+ALTER TABLE 'feature_group_feature' ADD COLUMN 'hash' VARCHAR;
+ALTER TABLE 'secure_item_stats' ADD COLUMN 'hash' VARCHAR;
+ALTER TABLE 'secure_item_type' ADD COLUMN 'hash' VARCHAR;
+ALTER TABLE 'settings' ADD COLUMN 'hash' VARCHAR;
+ALTER TABLE 'share' ADD COLUMN 'hash' VARCHAR;
+ALTER TABLE 'storage_region' ADD COLUMN 'hash' VARCHAR;
+ALTER TABLE 'user_subscription' ADD COLUMN 'hash' VARCHAR;
+
+/*renaming category to folder and adding parent column for folder nesting*/
+ALTER TABLE 'category' RENAME TO 'folder';
+ALTER TABLE 'folder' ADD COLUMN 'parent' VARCHAR REFERENCES folder('id');
+
+/* removing user_disabled column and adding blacklist column to site table */
+/* added apc_type and apc_script_id to support Automatic Password Changer feature */
+ALTER TABLE 'site' RENAME TO 'site_tmp';
+CREATE TABLE 'site'(
+    'id' VARCHAR NOT NULL PRIMARY KEY,
+    'uuid' VARCHAR,
+    'hash' VARCHAR,
+    'name' VARCHAR,
+    'friendly_name' VARCHAR,
+    'validated' BOOLEAN DEFAULT 0,
+    'recommended' BOOLEAN DEFAULT 0,
+    'created_date' DATETIME,
+    'last_modified_date' DATETIME,
+    'order' INTEGER DEFAULT 0,
+    'active' BOOLEAN DEFAULT 1,
+    'realm' VARCHAR,
+    'multi_step_login' BOOLEAN DEFAULT 0,
+    'sent_status' VARCHAR DEFAULT 'pending_send',
+    'blacklist' VARCHAR, /*page, domain (to be removed - moved to site_uri table)  */
+    'apc_type' VARCHAR, /* type of automatic password changer script (client_created, pb_made) */
+    'apc_script_id' VARCHAR /* script_id */
+);
+INSERT INTO 'site' (
+    id,
+    uuid,
+    name,
+    friendly_name,
+    validated,
+    recommended,
+    created_date,
+    last_modified_date,
+    `order`,
+    active,
+    realm,
+    multi_step_login,
+    sent_status,
+    blacklist
+) SELECT
+    id,
+    uuid,
+    name,
+    friendly_name,
+    validated,
+    recommended,
+    created_date,
+    last_modified_date,
+    `order`,
+    active,
+    realm,
+    multi_step_login,
+    sent_status,
+    CASE WHEN user_disabled = 1 THEN 'page' ELSE NULL END
+FROM 'site_tmp';
+
+ALTER TABLE 'site_image' RENAME TO 'site_image_tmp';
+CREATE TABLE 'site_image'(
+    id VARCHAR NOT NULL PRIMARY KEY,
+    uuid VARCHAR,
+    hash VARCHAR ,
+    site_id VARCHAR,
+    size_id VARCHAR,
+    url VARCHAR,
+    created_date DATETIME,
+    last_modified_date DATETIME,
+    active BOOLEAN DEFAULT 1,
+    FOREIGN KEY(site_id) REFERENCES site(id),
+    FOREIGN KEY(size_id) REFERENCES site_image_size(id)
+);
+INSERT INTO 'site_image'(
+    id,
+    uuid,
+    hash,
+    site_id,
+    size_id,
+    url,
+    created_date,
+    last_modified_date,
+    active
+) SELECT
+    id,
+    uuid,
+    hash,
+    site_id,
+    size_id,
+    url,
+    created_date,
+    last_modified_date,
+    active
+FROM 'site_image_tmp';
+DROP TABLE 'site_image_tmp';
+
+ALTER TABLE 'site_uri' RENAME TO 'site_uri_tmp';
+CREATE TABLE 'site_uri'(
+    uri VARCHAR NOT NULL,
+    hash VARCHAR,
+    behavior VARCHAR,
+    verified_count INTEGER DEFAULT 0,
+    is_trivial BOOLEAN DEFAULT 0,
+    type VARCHAR NOT NULL,
+    host VARCHAR,
+    lookup_method VARCHAR,
+    site_id VARCHAR NOT NULL,
+    uuid VARCHAR,
+    created_date DATETIME,
+    last_modified_date DATETIME,
+    active BOOLEAN DEFAULT 1,
+	blacklist BOOLEAN DEFAULT 0, /* use in conjuction with lookup_method column to determine scope page/domain */
+    PRIMARY KEY(uri, site_id, type) ON CONFLICT REPLACE,
+    FOREIGN KEY(site_id) REFERENCES site(id)
+);
+INSERT INTO 'site_uri'(
+    uri,
+    hash,
+    behavior,
+    verified_count,
+    is_trivial,
+    type,
+    host,
+    lookup_method,
+    site_id,
+    uuid,
+    created_date,
+    last_modified_date,
+    active
+) SELECT
+    uri,
+    hash,
+    behavior,
+    verified_count,
+    is_trivial,
+    type,
+    host,
+    lookup_method,
+    site_id,
+    uuid,
+    created_date,
+    last_modified_date,
+    active
+FROM 'site_uri_tmp';
+DROP TABLE 'site_uri_tmp';
+
+ALTER TABLE 'secure_item' RENAME TO 'secure_item_tmp';
+CREATE TABLE 'secure_item'(
+    id VARCHAR NOT NULL PRIMARY KEY,
+    folder_id VARCHAR,
+    data VARCHAR,
+    hash VARCHAR,
+    name VARCHAR,
+    secure_item_type_name VARCHAR,
+    site_id VARCHAR,
+    uuid VARCHAR,
+    favorite BOOLEAN DEFAULT 0,
+    color VARCHAR,
+    type VARCHAR,
+    share BOOLEAN DEFAULT 0,
+    created_date DATETIME,
+    last_modified_date DATETIME,
+    `order` INTEGER ,
+    active BOOLEAN DEFAULT 1,
+    verified BOOLEAN DEFAULT 0,
+    last_access DATETIME,
+    access_count UNSIGNED DEFAULT 0,
+    login_url VARCHAR,
+    FOREIGN KEY(folder_id) REFERENCES folder(id),
+    FOREIGN KEY(secure_item_type_name) REFERENCES secure_item_type(name),
+    FOREIGN KEY(site_id) REFERENCES site(id)
+);
+INSERT INTO 'secure_item'(
+    id,
+    folder_id,
+    data,
+    name,
+    secure_item_type_name,
+    site_id,
+    uuid,
+    favorite,
+    color,
+    type,
+    share,
+    created_date,
+    last_modified_date,
+    `order`,
+    active,
+    verified,
+    last_access,
+    access_count,
+    login_url
+) SELECT
+    id,
+    category_id,
+    data,
+    name,
+    secure_item_type_name,
+    site_id,
+    uuid,
+    favorite,
+    NULL,
+    CASE
+        WHEN type = 'PV' THEN 'Website'
+        WHEN type = 'SecureNotes' THEN 'GenericNote'
+        ELSE type
+    END,
+    share,
+    created_date,
+    last_modified_date,
+    `order`,
+    active,
+    verified,
+    last_access,
+    access_count,
+    login_url
+FROM 'secure_item_tmp';
+
+ALTER TABLE 'secure_item_data' RENAME TO 'secure_item_data_tmp';
+CREATE TABLE 'secure_item_data'(
+    secure_item_id VARCHAR NOT NULL,
+    identifier VARCHAR NOT NULL,
+    value VARCHAR,
+    sys_value VARCHAR,
+    hash VARCHAR,
+    created_date DATETIME,
+    last_modified_date DATETIME,
+    `order` INTEGER,
+    active BOOLEAN DEFAULT 1,
+	PRIMARY KEY(`secure_item_id`, `identifier`),
+    FOREIGN KEY(secure_item_id) REFERENCES secure_item(id)
+);
+INSERT INTO 'secure_item_data'(
+    secure_item_id,
+    identifier,
+    value,
+    sys_value,
+    created_date,
+    last_modified_date,
+    `order`,
+    active
+)SELECT
+    secure_item_id,
+    CASE
+        WHEN identifier = 'cvv' THEN 'security_code'
+        WHEN identifier = 'bank' THEN 'bank_name'
+        WHEN identifier = 'title' THEN 'name'
+        ELSE identifier
+    END,
+	CASE
+		WHEN value = 'True' THEN '1'
+		WHEN value = 'False' THEN '0'
+		ELSE value
+	END,
+    sys_value,
+    created_date,
+    last_modified_date,
+    `order`,
+    active
+FROM 'secure_item_data_tmp'
+WHERE identifier <> 'gender'; /* gender is removed */
+DROP TABLE 'secure_item_data_tmp';
+
+ALTER TABLE 'secure_item_stats' RENAME TO 'secure_item_stats_tmp';
+CREATE TABLE 'secure_item_stats'(
+    secure_item_id VARCHAR NOT NULL PRIMARY KEY,
+    do_not_show BOOLEAN DEFAULT 0,
+    last_password_change DATETIME,
+    has_duplicate BOOLEAN DEFAULT 0,
+    is_weak BOOLEAN DEFAULT 0,
+    last_alert DATETIME,
+    created_date DATETIME ,
+    last_modified_date DATETIME,
+    hash VARCHAR,
+    FOREIGN KEY(secure_item_id) REFERENCES secure_item(id)
+);
+INSERT INTO 'secure_item_stats'(
+    secure_item_id,
+    do_not_show,
+    last_password_change,
+    has_duplicate,
+    is_weak,
+    last_alert,
+    created_date,
+    last_modified_date
+) SELECT
+    secure_item_id,
+    do_not_show,
+    last_password_change,
+    has_duplicate,
+    is_weak,
+    last_alert,
+    created_date,
+    last_modified_date
+FROM 'secure_item_stats_tmp';
+DROP TABLE 'secure_item_stats_tmp';
+/* re-calculate hash after this script is run */
+
+/*
+removing secure_item_id column from share table and adding permission column
+adding tables for connecting folders and secure items with shares.
+*/
+ALTER TABLE 'share' RENAME TO 'share_tmp';
+CREATE TABLE 'share'(
+    id VARCHAR NOT NULL PRIMARY KEY,
+    hash VARCHAR,
+    share_type VARCHAR, /*standard, emergency_access*/
+    share_items VARCHAR, /* individual, folder, full */
+    data VARCHAR,
+    message VARCHAR,
+    status VARCHAR,
+    expiration_date DATETIME,
+    waiting_period INTEGER DEFAULT 0, /* in minutes - defaults to 0 */
+    receiver VARCHAR,
+    sender VARCHAR,
+    uuid VARCHAR,
+    created_date DATETIME,
+    last_modified_date DATETIME,
+    active BOOLEAN DEFAULT 1,
+    receiver_pk VARCHAR,
+    last_alert DATETIME,
+    nickname VARCHAR,
+    visible BOOLEAN DEFAULT 1,
+    permission VARCHAR,
+	share_group VARCHAR /* used to group shares sent to multiple users */
+);
+INSERT INTO 'share'(
+    id,
+    share_type,
+    share_items,
+    data,
+    message,
+    status,
+    expiration_date,
+    receiver,
+    sender,
+    uuid,
+    created_date,
+    last_modified_date,
+    active,
+    receiver_pk,
+    last_alert,
+    nickname,
+    visible,
+    permission,
+	share_group
+) SELECT
+    id,
+    'standard',
+    'individual',
+    data,
+    message,
+    status,
+    expiration_date,
+    receiver,
+    sender,
+    uuid,
+    created_date,
+    last_modified_date,
+    active,
+    receiver_pk,
+    last_alert,
+    nickname,
+    visible,
+    CASE WHEN visible = 1 THEN 'r' ELSE NULL END,
+	uuid
+FROM 'share_tmp';
+
+CREATE TABLE 'secure_item_share'(
+    'id' VARCHAR NOT NULL PRIMARY KEY,
+    'hash' VARCHAR,
+    'share_id' VARCHAR NOT NULL,
+    'secure_item_id' VARCHAR NOT NULL,
+    FOREIGN KEY('share_id') REFERENCES share('id'),
+    FOREIGN KEY('secure_item_id') REFERENCES secure_item('id')
+);
+
+/*migrate old shares*/
+INSERT INTO 'secure_item_share'(
+    id,
+    share_id,
+    secure_item_id
+) SELECT
+    (select substr(u,1,8)||'-'||substr(u,9,4)||'-4'||substr(u,13,3)||
+        '-'||v||substr(u,17,3)||'-'||substr(u,21,12) from (
+        select lower(hex(randomblob(16))) as u, substr('89ab'+rowid,abs(random()) % 4 + 1, 1) as v)), /*SQLite way to generate uuid :)*/
+    s.id,
+    s.secure_item_id
+FROM share_tmp s
+WHERE s.secure_item_id IS NOT NULL AND length(s.secure_item_id) > 0;
+
+/*share_tmp must be dropped before secure_item_tmp*/
+DROP TABLE 'share_tmp';
+DROP TABLE 'secure_item_tmp';
+DROP TABLE 'site_tmp';
+
+
+CREATE TABLE 'folder_share'(
+    'id' VARCHAR NOT NULL PRIMARY KEY,
+    'hash' VARCHAR,
+    'share_id' VARCHAR NOT NULL,
+    'folder_id' VARCHAR NOT NULL,
+    FOREIGN KEY('share_id') REFERENCES share('id'),
+    FOREIGN KEY('folder_id') REFERENCES folder('id')
+);
+
+/*creating user identity infrastructure*/
+CREATE TABLE 'user_identity'(
+    'id' VARCHAR NOT NULL PRIMARY KEY,
+    'hash' VARCHAR,
+    'identity_name' VARCHAR,
+    'name_id' VARCHAR,
+    'address_id' VARCHAR,
+    'email_id' VARCHAR,
+    'company_id' VARCHAR,
+    'bank_account_id' VARCHAR,
+	'phone_number_id' VARCHAR,
+	'credit_card_id' VARCHAR,
+    'default' BOOLEAN,
+    'uuid' VARCHAR,
+    'avatar' VARCHAR,
+    'created_date' VARCHAR,
+    'last_modified_date' VARCHAR,
+    'active' BOOLEAN DEFAULT 1,
+    'order' INTEGER DEFAULT 0,
+	'use_gravatar' BOOLEAN DEFAULT 0,
+	'gravatar' BLOB, /* for storing gravatar image from https://en.gravatar.com/site/implement/images/ */
+    FOREIGN KEY('name_id') REFERENCES secure_item('id'),
+    FOREIGN KEY('address_id') REFERENCES secure_item('id'),
+    FOREIGN KEY('email_id') REFERENCES secure_item('id'),
+    FOREIGN KEY('company_id') REFERENCES secure_item('id'),
+    FOREIGN KEY('bank_account_id') REFERENCES secure_item('id')
+	FOREIGN KEY('phone_number_id') REFERENCES secure_item('id'),
+    FOREIGN KEY('credit_card_id') REFERENCES secure_item('id')
+	 /*?*/
+);
+
+/*add indexes*/
+CREATE INDEX IF NOT EXISTS `secure_item_item` ON `secure_item`(`active`,`secure_item_type_name`,`site_id`);
+CREATE INDEX IF NOT EXISTS `secure_item_secure_item_type_name_type` ON `secure_item`(`secure_item_type_name`,`type`);
+CREATE INDEX IF NOT EXISTS `site_image_site_id` ON `site_image`(`site_id`);
+CREATE INDEX IF NOT EXISTS `site_uri_host` ON `site_uri`(`active`,`host`);
+CREATE INDEX IF NOT EXISTS `secure_item_data_itemid_identifier` ON `secure_item_data`(`secure_item_id`,`identifier`);
+
+/*remove unused folders*/
+DELETE FROM folder WHERE id NOT IN (SELECT DISTINCT folder_id FROM secure_item);
+
+/*add new secure item type 'Secure Notes'*/
+insert into secure_item_type (uuid, name, storage_format, created_date, last_modified_date, `order`, active) values ('eeb312b2-f1a1-11e5-9ce9-5e5517507c66', 'SN', '', strftime('%Y-%m-%dT%H:%M:%fZ', 'now'), strftime('%Y-%m-%dT%H:%M:%fZ', 'now'), 2, 1);
+insert into secure_item_type (uuid, name, storage_format, created_date, last_modified_date, `order`, active) values ('758419b7-36ae-4ff8-9d7d-39f6b008dbd7', 'PG', '', strftime('%Y-%m-%dT%H:%M:%fZ', 'now'), strftime('%Y-%m-%dT%H:%M:%fZ', 'now'), 2, 1);
+
+/*delete unused small images*/
+delete from site_image where size_id in (select id from site_image_size where name = '90x45');
+delete from site_image_size where name = '90x45';
+
+/*rename folder table to folder_tmp to create new table without deletable and use_secure_browser fields */
+ALTER TABLE folder RENAME TO 'folder_tmp';
+
+PRAGMA foreign_keys = OFF;
+
+/*create new folder table*/
+CREATE TABLE 'folder' (
+id VARCHAR NOT NULL PRIMARY KEY,
+name VARCHAR,
+uuid VARCHAR,
+hash VARCHAR,
+created_date DATETIME,
+last_modified_date DATETIME,
+`order` INTEGER ,
+active BOOLEAN DEFAULT 1
+, 'parent' VARCHAR REFERENCES folder('id')
+);
+
+/*fill new folder table with data from folder_tmp table*/
+INSERT INTO 'folder'(
+id,
+name,
+uuid,
+hash,
+created_date,
+last_modified_date,
+`order` ,
+active ,
+parent
+) SELECT
+id,
+name,
+uuid,
+hash,
+created_date,
+last_modified_date,
+`order` ,
+active ,
+parent
+FROM 'folder_tmp';
+
+/*delete old folder_tmp table*/
+DROP TABLE folder_tmp;
+
+CREATE TABLE 'blacklist_uri' (
+	'id' VARCHAR PRIMARY KEY,
+	'uuid' VARCHAR,
+	'scope' VARCHAR, /* 'page' or 'domain' */
+	'uri' VARCHAR,
+	'enforced_type' VARCHAR, /* 'personal' or 'policy_provided' */
+	'policy_uuid' VARCHAR, /* null for personal, otherwise uuid for policy */
+	'active' BOOLEAN DEFAULT 1,
+	'hash' VARCHAR,
+	'created_date' DATETIME,
+	'last_modified_date' DATETIME
+);
+
+CREATE TABLE 'history'(
+    id VARCHAR NOT NULL PRIMARY KEY,
+    secure_item_id VARCHAR NOT NULL,
+    identifier VARCHAR NOT NULL,
+    value VARCHAR,
+    hash VARCHAR,
+    created_date DATETIME,
+    last_modified_date DATETIME,
+    active BOOLEAN DEFAULT 1,
+    FOREIGN KEY(secure_item_id) REFERENCES secure_item(id)
+);
+
+PRAGMA foreign_keys = ON;

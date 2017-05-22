@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/include_security_item_name" />
+
+    <include layout="@layout/include_security_item_folder" />
+
+    <include layout="@layout/include_security_item_server_address" />
+
+    <include layout="@layout/include_security_item_port" />
+
+
+    <com.passwordboss.android.widget.AppLabelInputLayout
+        style="@style/AppLabelInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ItemFieldBitStrength">
+
+        <EditText
+            android:id="@+id/fr_sisk_bit_strength"
+            style="@style/SecureItem.Input.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences" />
+    </com.passwordboss.android.widget.AppLabelInputLayout>
+
+    <com.passwordboss.android.widget.AppLabelInputLayout
+        style="@style/AppLabelInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ItemFieldFormat">
+
+        <EditText
+            android:id="@+id/fr_sisk_format"
+            style="@style/SecureItem.Input.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences" />
+    </com.passwordboss.android.widget.AppLabelInputLayout>
+
+    <com.passwordboss.android.widget.AppLabelInputLayout
+        style="@style/AppLabelInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ItemFieldPassphrase">
+
+        <EditText
+            android:id="@+id/fr_sisk_passphrase"
+            style="@style/SecureItem.Input.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textNoSuggestions" />
+    </com.passwordboss.android.widget.AppLabelInputLayout>
+
+    <com.passwordboss.android.widget.AppLabelInputLayout
+        style="@style/AppLabelInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ItemFieldPublicKey">
+
+        <EditText
+            android:id="@+id/fr_sisk_public_key"
+            style="@style/SecureItem.Input.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textNoSuggestions" />
+    </com.passwordboss.android.widget.AppLabelInputLayout>
+
+    <com.passwordboss.android.widget.AppLabelInputLayout
+        style="@style/AppLabelInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ItemFieldPrivateKey">
+
+        <EditText
+            android:id="@+id/fr_sisk_private_key"
+            style="@style/SecureItem.Input.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textNoSuggestions" />
+    </com.passwordboss.android.widget.AppLabelInputLayout>
+
+
+    <include layout="@layout/include_security_item_notes" />
+
+</LinearLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/include_security_item_name" />
+
+    <include layout="@layout/include_security_item_folder" />
+
+    <include layout="@layout/include_secure_item_first_name" />
+
+    <include layout="@layout/include_secure_item_last_name" />
+
+    <com.passwordboss.android.widget.AppLabelInputLayout
+        style="@style/AppLabelInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Number">
+
+        <EditText
+            android:id="@+id/fr_sidl_number"
+            style="@style/SecureItem.Input.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapCharacters"
+            tools:ignore="TextFields" />
+    </com.passwordboss.android.widget.AppLabelInputLayout>
+
+    <include layout="@layout/include_secure_item_expires" />
+
+    <include layout="@layout/include_secure_item_state" />
+
+    <include layout="@layout/include_secure_item_country" />
+
+    <include layout="@layout/include_security_item_notes" />
+</LinearLayout>

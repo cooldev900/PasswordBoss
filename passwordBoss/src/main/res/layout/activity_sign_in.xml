@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/padding_double"
+            android:paddingRight="@dimen/padding_double">
+
+            <include layout="@layout/include_request_focus" />
+
+            <ImageView
+                android:id="@+id/ac_si_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ac_logo"
+                tools:ignore="ContentDescription" />
+
+
+            <TextView
+                fontPath="@string/font_semibold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_double"
+                android:text="@string/Email"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/ac_si_email"
+                style="@style/AppEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:singleLine="true" />
+
+            <TextView
+                fontPath="@string/font_semibold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:singleLine="true"
+                android:text="@string/MasterPassword"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="12sp" />
+
+
+            <com.passwordboss.android.widget.AppPasswordView
+                android:id="@+id/ac_si_password"
+                style="@style/AppEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionGo"/>
+
+
+            <TextView
+                fontPath="@string/font_semibold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin"
+                android:text="@string/LoginNewAccount1"
+                android:textColor="@color/text_color_selector"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/ac_si_sign_up"
+                fontPath="@string/font_semibold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_quarter"
+                android:text="@string/LoginNewAccount2"
+                android:textColor="@color/textColorAccent"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/ac_si_button_sign_in"
+        style="@style/AppButton.Bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="@string/SignIn" />
+
+</LinearLayout>

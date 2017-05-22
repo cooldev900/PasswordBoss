@@ -1,0 +1,288 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppLabelInputLayout">
+        <item name="android:layout_marginTop">@dimen/margin_quarter</item>
+    </style>
+
+    <style name="AppEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:paddingLeft">@dimen/padding_half</item>
+        <item name="android:paddingRight">@dimen/padding_half</item>
+    </style>
+
+    <style name="AppEditText.RoundedGreen">
+        <item name="android:background">@drawable/edit_text_rounded_green</item>
+        <item name="android:minHeight">40dp</item>
+    </style>
+
+    <style name="AppEditText.RoundedGreenWhiteBackground">
+        <item name="android:background">@drawable/edit_text_rounded_green_white_background</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:paddingLeft">@dimen/padding</item>
+        <item name="android:paddingRight">@dimen/padding</item>
+        <item name="fontPath">@string/font_semibold</item>
+    </style>
+
+    <style name="AppButton.Colored" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:minWidth">120dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/button_colored_text</item>
+        <item name="android:textSize">20sp</item>
+        <item name="colorButtonNormal">@color/colorAccentDark</item>
+        <item name="fontPath">@string/font_regular</item>
+    </style>
+
+    <style name="AppButton.Colored.Small">
+        <item name="android:textSize">14sp</item>
+        <item name="android:minHeight">40dp</item>
+    </style>
+
+    <style name="AppButton.Colored.Small.White">
+        <item name="colorButtonNormal">@color/white</item>
+        <item name="colorAccent">@color/white</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorControlHighlight">@color/white</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="android:textColor">@color/textColorPrimaryDark</item>
+    </style>
+
+    <style name="AppButton.Borderless" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/textColorAccent</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontPath">@string/font_semibold</item>
+    </style>
+
+    <style name="AppButton.Bottom" parent="">
+        <item name="android:background">@drawable/button_bottom</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="AppPinInputField" parent="">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_margin">@dimen/margin_quarter</item>
+        <item name="android:background">@drawable/ac_sup_pin_frame</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">28sp</item>
+    </style>
+
+    <style name="AppPinKeyboard.Keypad" parent="">
+        <item name="android:background">@drawable/vw_kp_keypad</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_height">@dimen/vw_pk_size</item>
+        <item name="android:layout_margin">@dimen/margin_half</item>
+        <item name="android:layout_width">@dimen/vw_pk_size</item>
+        <item name="android:textColor">@color/vw_pk_keypad_text</item>
+        <item name="android:textSize">@dimen/vw_pk_text_size</item>
+        <item name="fontPath">@string/font_light</item>
+    </style>
+
+    <style name="AppProgressBar">
+        <item name="android:minWidth">60dp</item>
+        <item name="android:minHeight">60dp</item>
+        <item name="android:indeterminateDrawable">@drawable/progress_bar_circle_indeterminate
+        </item>
+    </style>
+
+    <style name="FloatingActionButton.Orange" parent="">
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:src">@drawable/ic_float_action_new</item>
+        <item name="backgroundTint">@color/floating_button_orange</item>
+    </style>
+
+
+    <style name="PinActivity.Symbol" parent="">
+        <item name="android:checked">false</item>
+        <item name="android:checkMark">@drawable/ac_pn_pin_symbol</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">@dimen/padding_quarter</item>
+        <item name="android:paddingRight">@dimen/padding_quarter</item>
+    </style>
+
+    <style name="Ripple"/>
+
+    <style name="Ripple.Dark">
+        <item name="rv_color">#42000000</item>
+    </style>
+
+    <style name="Ripple.Light">
+        <item name="rv_color">#42FFFFFF</item>
+    </style>
+
+    <style name="Screen.SubHeader" parent="Text.Semibold">
+        <item name="android:background">@color/white</item>
+        <item name="android:elevation">4dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/padding</item>
+        <item name="android:textColor">#aaaaaa</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="SecureItem.Input.EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">@color/text_color_selector</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingLeft">@dimen/padding_half</item>
+        <item name="android:paddingRight">@dimen/padding_half</item>
+    </style>
+
+    <style name="SecureItem.Input.Chevron" parent="SecureItem.Input.EditText">
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:drawableRight">@drawable/ic_chevron</item>
+    </style>
+
+    <style name="SecureItem.Input.DropDownChevron" parent="SecureItem.Input.EditText">
+        <item name="android:focusableInTouchMode">true</item>
+    </style>
+
+    <style name="SecureItem.Input.Switch" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="android:textColor">@color/text_color_selector</item>
+        <item name="android:paddingLeft">@dimen/padding_half</item>
+        <item name="android:paddingRight">@dimen/padding_half</item>
+        <item name="android:minHeight">40dp</item>
+    </style>
+
+    <style name="SecureItem.Menu" parent="">
+        <item name="android:drawablePadding">@dimen/padding</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:minHeight">?android:listPreferredItemHeightSmall</item>
+        <item name="android:paddingLeft">@dimen/padding</item>
+        <item name="android:paddingRight">@dimen/padding</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="Settings.Group" parent="">
+        <item name="android:paddingBottom">@dimen/padding_quarter</item>
+        <item name="android:paddingLeft">@dimen/padding</item>
+        <item name="android:paddingRight">@dimen/padding</item>
+        <item name="android:paddingTop">@dimen/padding_half</item>
+        <item name="android:textColor">@color/textColorPrimaryDark</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontPath">@string/font_semibold</item>
+    </style>
+
+    <style name="Settings.Row" parent="">
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:minHeight">@dimen/fr_st_row_min_height</item>
+    </style>
+
+    <style name="Settings.Row.TextView">
+        <item name="android:drawableRight">@drawable/ic_chevron</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:paddingLeft">@dimen/padding</item>
+        <item name="android:paddingRight">@dimen/padding</item>
+        <item name="android:textColor">@color/text_color_selector</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontPath">@string/font_regular</item>
+    </style>
+
+    <style name="Settings.Title" parent="">
+        <item name="android:paddingLeft">@dimen/padding</item>
+        <item name="android:paddingRight">@dimen/padding</item>
+        <item name="android:paddingTop">@dimen/padding_half</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/text_color_primary_selector</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontPath">@string/font_semibold</item>
+    </style>
+
+    <style name="Settings.Value" parent="">
+        <item name="android:singleLine">true</item>
+        <item name="android:paddingLeft">@dimen/padding</item>
+        <item name="android:paddingRight">@dimen/padding</item>
+        <item name="android:paddingBottom">@dimen/padding_half</item>
+        <item name="android:textColor">@color/text_color_selector</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontPath">@string/font_regular</item>
+    </style>
+
+    <style name="Settings.PasswordGenerator.Label" parent="">
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/text_color_selector</item>
+        <item name="android:textSize">18sp</item>
+        <item name="fontPath">@string/font_regular</item>
+    </style>
+
+    <style name="Settings.MyDevices.Header" parent="">
+        <item name="android:textColor">@color/text_color_primary_selector</item>
+        <item name="android:singleLine">true</item>
+        <item name="fontPath">@string/font_regular</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginLeft">@dimen/padding_medium</item>
+        <item name="android:layout_marginStart">@dimen/padding_medium</item>
+        <item name="android:layout_marginRight">@dimen/padding_quadruple</item>
+        <item name="android:layout_marginEnd">@dimen/padding_quadruple</item>
+    </style>
+
+    <style name="Settings.MyDevices.ItemName" parent="">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:singleLine">true</item>
+        <item name="fontPath">@string/font_regular</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="Settings.MyDevices.ItemDate" parent="">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:singleLine">true</item>
+        <item name="fontPath">@string/font_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="Settings.MyDevices.ItemImage" parent="">
+        <item name="android:layout_marginLeft">@dimen/padding_medium</item>
+        <item name="android:layout_marginStart">@dimen/padding_medium</item>
+        <item name="android:layout_marginRight">@dimen/padding</item>
+        <item name="android:layout_marginEnd">@dimen/padding</item>
+    </style>
+
+    <style name="Settings.Value.Centered">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingBottom">0dp</item>
+    </style>
+
+    <style name="SignUpPasswordActivity.Requirement" parent="">
+        <item name="android:padding">@dimen/padding_quarter</item>
+        <item name="android:textColor">#5e5e5e</item>
+        <item name="android:checked">false</item>
+        <item name="android:background">@null</item>
+        <item name="android:button">@drawable/password_requirement</item>
+        <item name="android:focusable">false</item>
+        <item name="android:clickable">false</item>
+    </style>
+
+    <style name="Settings.PasswordGenerator.SeekBar" parent="Widget.AppCompat.SeekBar">
+        <item name="android:thumb">@drawable/custom_seek_bar_thumb</item>
+        <item name="android:progressDrawable">
+            @drawable/apptheme_scrubber_progress_horizontal_holo_light
+        </item>
+    </style>
+
+    <style name="Text">
+        <item name="android:textColor">@color/text_color_selector</item>
+    </style>
+
+    <style name="Text.Bold">
+        <item name="fontPath">@string/font_bold</item>
+    </style>
+
+    <style name="Text.Regular">
+        <item name="fontPath">@string/font_regular</item>
+    </style>
+
+    <style name="Text.Semibold">
+        <item name="fontPath">@string/font_semibold</item>
+    </style>
+
+
+</resources>

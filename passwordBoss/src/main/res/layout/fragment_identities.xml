@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_window_grey">
+
+    <FrameLayout
+        android:id="@+id/fr_id_slpash_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/padding_double"
+            android:paddingRight="@dimen/padding_double">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/fr_id_splash" />
+
+            <TextView
+                style="@style/Text.Semibold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin"
+                android:text="@string/IdentitiesHeadline"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="20sp" />
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_half"
+                android:gravity="center"
+                android:text="@string/IdentitiesBody"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/fr_iden_header"
+        style="@style/Screen.SubHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/IdentitiesBody" />
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/fr_iden_list_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/fr_iden_header">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/fr_iden_identity_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/padding_half"
+            android:paddingTop="@dimen/padding_half"
+            android:visibility="gone" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fr_id_button_add_fab"
+            style="@style/FloatingActionButton.Orange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_anchor="@+id/fr_iden_identity_list"
+            app:layout_anchorGravity="bottom|end" />
+
+    </android.support.design.widget.CoordinatorLayout>
+
+    <Button
+        android:id="@+id/fr_id_button_add"
+        style="@style/AppButton.Bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/IdentitiesAddButton"
+        android:visibility="gone" />
+</RelativeLayout>

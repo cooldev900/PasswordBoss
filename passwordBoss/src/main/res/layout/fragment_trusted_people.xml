@@ -1,0 +1,60 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fr_trpp_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_window_white"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:id="@+id/fr_trpp_empty_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_trusted_people_splash"/>
+
+            <TextView
+                style="@style/Text.Semibold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin"
+                android:text="@string/EmergencyHeadline"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="20sp"/>
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_half"
+                android:gravity="center"
+                android:paddingLeft="@dimen/padding_double"
+                android:paddingRight="@dimen/padding_double"
+                android:text="@string/EmergencyPeopleITrustBody"
+                android:textSize="15sp"/>
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/fr_trpp_button_setup"
+            style="@style/AppButton.Bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="@string/EmergencySetupAccessHeadline"/>
+
+    </FrameLayout>
+</FrameLayout>

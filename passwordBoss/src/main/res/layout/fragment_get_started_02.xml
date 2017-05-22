@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/fr_gs_padding_vertical"
+    android:paddingLeft="@dimen/fr_gs_padding_horizontal"
+    android:paddingRight="@dimen/fr_gs_padding_horizontal"
+    android:paddingTop="@dimen/fr_gs_padding_vertical">
+
+    <TextView
+        fontPath="@string/font_semibold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/MobileTourScreen2Headline"
+        android:textColor="@color/textColorPrimaryDark"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="@dimen/padding_half"
+        android:paddingTop="@dimen/padding_half"
+        android:text="@string/MobileTourScreen2Body"
+        android:textColor="@color/text_color_selector" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:src="@drawable/fr_gs02_image" />
+
+
+</LinearLayout>

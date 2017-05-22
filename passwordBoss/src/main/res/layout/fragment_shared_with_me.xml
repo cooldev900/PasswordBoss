@@ -1,0 +1,51 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="com.passwordboss.android.fragment.SharedByMeFragment">
+
+    <FrameLayout
+        android:id="@+id/fr_swm_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_window_white"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_shared_with_me_splash"/>
+
+            <TextView
+                style="@style/Text.Semibold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin"
+                android:text="@string/SharedWithMe"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="20sp"/>
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_half"
+                android:gravity="center"
+                android:paddingLeft="@dimen/padding_double"
+                android:paddingRight="@dimen/padding_double"
+                android:text="@string/securelyShareAnyDataInstantlyWithYourTrustedFriendsAndFamily"
+                android:textSize="15sp"/>
+
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>

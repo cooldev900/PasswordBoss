@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                 xmlns:tools="http://schemas.android.com/tools"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent"
+                                                 android:background="@color/background_window_white">
+
+    <TextView
+        android:id="@+id/fr_fl_label_empty"
+        style="@style/Text.Semibold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/FolderListEmpty"
+        android:visibility="gone"/>
+
+    <com.passwordboss.android.widget.RecyclerExtView
+        android:id="@+id/fr_fl_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_folder"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fr_fl_button_new"
+        style="@style/FloatingActionButton.Orange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@+id/fr_fl_recycler"
+        app:layout_anchorGravity="bottom|end"/>
+
+</android.support.design.widget.CoordinatorLayout>

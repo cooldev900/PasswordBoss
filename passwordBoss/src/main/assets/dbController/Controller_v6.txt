@@ -1,0 +1,13 @@
+﻿ALTER TABLE `event` ADD COLUMN `event_id` VARCHAR;
+ALTER TABLE `event` ADD COLUMN `event_parent_id` VARCHAR;
+CREATE TABLE IF NOT EXISTS `message_history` (
+  `id` VARCHAR NOT NULL PRIMARY KEY,
+  `analytics_code` VARCHAR,
+  `msg_type` VARCHAR,
+  `theme` VARCHAR,
+  `button_clicked` VARCHAR,
+  `buy_button` VARCHAR,
+  `days_since_account_created` INTEGER,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME
+);

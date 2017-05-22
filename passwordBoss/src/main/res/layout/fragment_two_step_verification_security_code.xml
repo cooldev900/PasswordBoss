@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_window_grey"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingLeft="@dimen/padding_double"
+        android:paddingRight="@dimen/padding_double">
+
+
+        <TextView
+            style="@style/Text.Semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/fr_tsvsc_security_code"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/margin"
+            android:layout_marginTop="@dimen/margin"
+            android:gravity="center"
+            android:text="@string/TwoStepSecretConfirmationCodeScreenMessage"
+            android:textSize="14sp" />
+
+
+        <EditText
+            android:id="@+id/fr_tsvsc_security_code"
+            style="@style/AppEditText.RoundedGreenWhiteBackground"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:inputType="number"
+            android:padding="@dimen/padding_half" />
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/fr_tsvsc_button_next"
+        style="@style/AppButton.Bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="@string/Next" />
+
+</LinearLayout>

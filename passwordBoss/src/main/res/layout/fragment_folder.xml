@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_window_white"
+    android:orientation="vertical"
+    tools:ignore="RtlHardcoded,RtlSymmetry">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/padding"
+            android:paddingRight="@dimen/padding">
+
+
+            <com.passwordboss.android.widget.AppItemIconView
+                android:id="@+id/fr_fl_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/fr_si_icon_height"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/margin"
+                android:layout_marginTop="@dimen/margin_double" />
+
+            <com.passwordboss.android.widget.AppLabelInputLayout
+                style="@style/AppLabelInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Name">
+
+                <EditText
+                    android:id="@+id/fr_fl_name"
+                    style="@style/SecureItem.Input.EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapSentences" />
+            </com.passwordboss.android.widget.AppLabelInputLayout>
+
+
+            <com.passwordboss.android.widget.AppLabelInputLayout
+                style="@style/AppLabelInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/FolderCreateSubFolder">
+
+                <com.passwordboss.android.widget.AppInputField
+                    android:id="@+id/fr_fl_parent"
+                    style="@style/SecureItem.Input.Chevron"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.passwordboss.android.widget.AppLabelInputLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/fr_fl_button_save"
+        style="@style/AppButton.Bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="@string/Save" />
+
+</LinearLayout>
+

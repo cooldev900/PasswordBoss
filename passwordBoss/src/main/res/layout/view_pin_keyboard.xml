@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:ignore="HardcodedText">
+
+    <TableRow>
+
+        <TextView
+            style="@style/AppPinKeyboard.Keypad"
+            android:text="1" />
+
+        <TextView
+            style="@style/AppPinKeyboard.Keypad"
+            android:text="2" />
+
+        <TextView
+            style="@style/AppPinKeyboard.Keypad"
+            android:text="3" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            style="@style/AppPinKeyboard.Keypad"
+            android:text="4" />
+
+        <TextView
+            style="@style/AppPinKeyboard.Keypad"
+            android:text="5" />
+
+        <TextView
+            style="@style/AppPinKeyboard.Keypad"
+            android:text="6" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            style="@style/AppPinKeyboard.Keypad"
+            android:text="7" />
+
+        <TextView
+            style="@style/AppPinKeyboard.Keypad"
+            android:text="8" />
+
+        <TextView
+            style="@style/AppPinKeyboard.Keypad"
+            android:text="9" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            style="@style/AppPinKeyboard.Keypad"
+            android:visibility="invisible" />
+
+        <TextView
+            style="@style/AppPinKeyboard.Keypad"
+            android:text="0" />
+
+        <TextView
+            style="@style/AppPinKeyboard.Keypad"
+            android:visibility="invisible" />
+
+
+    </TableRow>
+
+</TableLayout>

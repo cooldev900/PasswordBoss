@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/almost_white">
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/feature_thumbnail"
+            android:layout_marginLeft="@dimen/margin"
+            android:src="@drawable/ic_feature_access_from_anywhere"
+            android:paddingTop="@dimen/margin"
+            android:paddingBottom="@dimen/margin"
+            android:layout_centerVertical="true"/>
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/feature_descriprion_container"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_toRightOf="@+id/feature_thumbnail"
+            android:layout_toEndOf="@id/feature_thumbnail"
+            android:layout_centerVertical="true">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/feature_title"
+                android:textColor="@color/colorPrimaryDark"
+                fontPath="@string/font_semibold"
+                android:textSize="17sp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/feature_descriprion"
+                android:textColor="@color/dark_grey"
+                fontPath="@string/font_regular"
+                android:textSize="14sp"/>
+    </LinearLayout>
+
+    <View android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:background="#d9d9d9"
+          android:layout_alignBottom="@+id/feature_thumbnail"/>
+</RelativeLayout>

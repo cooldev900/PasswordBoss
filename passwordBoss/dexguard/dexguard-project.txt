@@ -1,0 +1,59 @@
+#project
+
+# encrypting DATABASE_KEY, so DATABASE_KEY is secure string noe
+-encryptstring class com.passwordboss.android.utils.Pref {
+	public static String DATABASE_KEY;
+} 
+
+-dontwarn com.amazon.device.messaging.**
+-dontwarn bo.app.**
+-dontwarn org.apache.**
+
+#-keep class bo.app.** { *; } 
+#-keep class org.apache.** { *; }
+
+# keep Activities and generated classes
+-keep public class * extends android.app.Activity
+
+-keep class !com.passwordboss.android.crypto.**,!com.passwordboss.android.database.**,!com.passwordboss.android.securebrowser.** { *; }
+#-keep class !com.passwordboss.android.** { *; }
+
+# keep generated classes
+-keepclassmembers class **.R$* {
+    public static <fields>;
+    static java.lang.String *;
+}
+
+# keep views classes
+-keepclasseswithmembers class * {
+   public <init>(android.content.Context, android.util.AttributeSet);
+}
+-keepclasseswithmembers  class * {
+   public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+# keep resources
+-keepresources */*
+-keepattributes SourceFile,LineNumberTable 
+-adaptresourcefilenames
+-adaptresourcefilecontents 
+-keepdirectories
+#-dontobfuscate
+
+
+# Remove Android logging code
+-assumenosideeffects class android.util.Log {
+    public static int v(...);
+    public static int i(...);
+    public static int w(...);
+    public static int d(...);
+    public static int e(...);
+}
+
+-assumenosideeffects class com.example.android.trivialdrivesample.util.IabHelper {
+     void logDebug(java.lang.String);
+     void logWarn(java.lang.String);
+     void logError(java.lang.String);
+} 
+
+-encryptassetfiles js/**

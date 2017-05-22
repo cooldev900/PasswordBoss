@@ -1,0 +1,129 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_window_white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/fr_upgr_img_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/margin_double"
+            android:layout_marginTop="@dimen/margin_double"
+            android:src="@drawable/ac_logo" />
+
+
+        <com.passwordboss.android.widget.BuyButton
+            android:id="@+id/fr_upgr_btn_3_year"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fr_upgr_img_logo"
+            android:layout_marginLeft="@dimen/padding_double"
+            android:layout_marginRight="@dimen/padding_double"
+            app:discountDrawable="@drawable/ic_offer_38_percent"
+            app:textPeriod="@string/payment_3_years"
+            app:textPrice="$54.99" />
+
+        <com.passwordboss.android.widget.BuyButton
+            android:id="@+id/fr_upgr_btn_2_year"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fr_upgr_btn_3_year"
+            android:layout_marginLeft="@dimen/padding_double"
+            android:layout_marginRight="@dimen/padding_double"
+            android:layout_marginTop="@dimen/button_distance"
+            app:discountDrawable="@drawable/ic_offer_25_percent"
+            app:textPeriod="@string/payment_2_years"
+            app:textPrice="$44.99" />
+
+        <com.passwordboss.android.widget.BuyButton
+            android:id="@+id/fr_upgr_btn_1_year"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fr_upgr_btn_2_year"
+            android:layout_marginLeft="@dimen/padding_double"
+            android:layout_marginRight="@dimen/padding_double"
+            android:layout_marginTop="@dimen/button_distance"
+            app:isTextPerYearVisible="true"
+            app:textPeriod="@string/payment_1_year"
+            app:textPrice="$29.99" />
+
+        <TextView
+            android:id="@+id/fr_upgr_label_get_features"
+            fontPath="@string/font_semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fr_upgr_btn_1_year"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_half"
+            android:text="@string/BuyScreenFeaturesHeadline"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/button_buy_text_size" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignTop="@+id/fr_upgr_feature_access_anywhere"
+            android:background="#e5e5e5" />
+
+        <com.passwordboss.android.widget.FeatureView
+            android:id="@+id/fr_upgr_feature_access_anywhere"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fr_upgr_label_get_features"
+            android:layout_marginTop="@dimen/margin_half"
+            app:featureDrawable="@drawable/ic_feature_access_from_anywhere"
+            app:textDescription="@string/payment_access_subtext"
+            app:textTitle="@string/AccessAnywhere" />
+
+        <com.passwordboss.android.widget.FeatureView
+            android:id="@+id/fr_upgr_feature_unlimited_sharing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fr_upgr_feature_access_anywhere"
+            app:featureDrawable="@drawable/ic_feature_unlimited_sharing"
+            app:textDescription="@string/payment_unlimited_subtext"
+            app:textTitle="@string/UnlimitedSharing" />
+
+        <com.passwordboss.android.widget.FeatureView
+            android:id="@+id/fr_upgr_feature_2_step_verification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fr_upgr_feature_unlimited_sharing"
+            app:featureDrawable="@drawable/ic_feature_2_step_verification"
+            app:textDescription="@string/AdditionalSecurity"
+            app:textTitle="@string/TwoStepVerificationTitle" />
+
+        <com.passwordboss.android.widget.FeatureView
+            android:id="@+id/fr_upgr_feature_online_backup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fr_upgr_feature_2_step_verification"
+            app:featureDrawable="@drawable/ic_feature_online_backup"
+            app:textDescription="@string/SecurelyBackedUp"
+            app:textTitle="@string/OnlineBackup" />
+
+        <com.passwordboss.android.widget.FeatureView
+            android:id="@+id/fr_upgr_feature_theft_protection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fr_upgr_feature_online_backup"
+            app:featureDrawable="@drawable/ic_feature_theft_protection"
+            app:textDescription="@string/DeleteData"
+            app:textTitle="@string/TheftProtection" />
+
+        <com.passwordboss.android.widget.FeatureView
+            android:id="@+id/fr_upgr_feature_priority_support"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fr_upgr_feature_theft_protection"
+            app:featureDrawable="@drawable/ic_feature_priority_support"
+            app:textDescription="@string/SwFinishB5SubTitle"
+            app:textTitle="@string/PrioritySupport" />
+    </RelativeLayout>
+</ScrollView>

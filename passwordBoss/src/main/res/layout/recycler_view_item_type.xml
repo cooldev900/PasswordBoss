@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_half"
+    tools:ignore="UseCompoundDrawables">
+
+    <com.passwordboss.android.widget.AppItemIconView
+        android:id="@+id/rc_it_icon"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/rc_it_name"
+        style="@style/Text.Regular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_half"
+        android:gravity="center"
+        android:lines="2"
+        android:textColor="#777777" />
+
+</LinearLayout>

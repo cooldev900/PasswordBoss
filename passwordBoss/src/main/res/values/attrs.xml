@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="AppDashboardButton">
+        <attr name="android:text" />
+        <attr name="android:src" />
+    </declare-styleable>
+
+    <declare-styleable name="AppLabelInputLayout">
+        <attr name="android:text" />
+    </declare-styleable>
+
+    <declare-styleable name="AppSecurityItemNotesView">
+        <attr name="android:text" />
+    </declare-styleable>
+
+    <declare-styleable name="BuyButton">
+        <attr name="textPeriod" format="string" />
+        <attr name="textPrice" format="string" />
+        <attr name="isTextPerYearVisible" format="boolean" />
+        <attr name="discountDrawable" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="FeatureView">
+        <attr name="textTitle" format="string" />
+        <attr name="textDescription" format="string" />
+        <attr name="featureDrawable" format="reference" />
+    </declare-styleable>
+
+</resources>

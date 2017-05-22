@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/padding_double"
+            android:paddingRight="@dimen/padding_double">
+
+            <include layout="@layout/include_request_focus" />
+
+            <ImageView
+                android:id="@+id/ac_sue_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ac_logo"
+                tools:ignore="ContentDescription" />
+
+
+            <TextView
+                fontPath="@string/font_semibold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin_double"
+                android:gravity="center"
+                android:text="@string/MobileAccountCreationHeadline1"
+                android:textColor="@color/textColorPrimaryDark"
+                android:textSize="20sp" />
+
+            <EditText
+                style="@style/AppEditText"
+                android:id="@+id/ac_sue_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:singleLine="true" />
+
+
+            <TextView
+                fontPath="@string/font_semibold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin"
+                android:text="@string/MobileAccountCreationExisting"
+                android:textColor="@color/text_color_selector"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/ac_sue_sign_in"
+                fontPath="@string/font_semibold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_quarter"
+                android:text="@string/SignIn"
+                android:textColor="@color/textColorAccent"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/ac_sue_button_next"
+        style="@style/AppButton.Bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="@string/Next" />
+
+</LinearLayout>

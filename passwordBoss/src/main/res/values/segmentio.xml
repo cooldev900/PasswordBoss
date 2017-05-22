@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!--Your Segment.com f2prateek/android-sample-app write key-->
+  <string name="analytics_write_key">sdZzhPgFCyXorExuQ1cuLFIw7yx1KKyo</string>
+
+  <!--Whether to print additional log information as you develop.-->
+  <bool name="analytics_logging">false</bool>
+
+  <!--Size of the disk queue at which we should flush events.-->
+  <integer name="analytics_queue_size">25</integer>
+
+  <!--Interval at which we should flush events in seconds.-->
+  <integer name="analytics_flush_interval">60</integer>
+</resources>

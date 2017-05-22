@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_window_grey"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/padding">
+
+            <TextView
+                android:id="@+id/fr_tsvaa_label_authenticator_apps"
+                style="@style/Text.Semibold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingMultiplier="1.2"
+                android:text="@string/TwoStepSecretKeyScreenFirstMessage" />
+
+            <TextView
+                style="@style/Text.Bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:text="@string/TwoStepSecretKeyScreenSecondMessage"
+                android:textColor="@color/black" />
+
+            <TextView
+                style="@style/Text.Semibold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_half"
+                android:text="@string/TwoStepSecretKeyScreenThirdMessagePart1" />
+
+            <ImageView
+                android:id="@+id/fr_tsvaa_qr_code"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/margin_half" />
+
+            <TextView
+                style="@style/Text.Semibold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_half"
+                android:gravity="center_horizontal"
+                android:text="@string/TwoStepSecretKeyScreenThirdMessagePart2"
+                android:textColor="@color/black" />
+
+
+            <TextView
+                style="@style/Text.Semibold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_half"
+                android:text="@string/TwoStepSecretKeyScreenThirdMessagePart3" />
+
+            <TextView
+                android:id="@+id/fr_tsvaa_secret_key"
+                style="@style/AppEditText.RoundedGreenWhiteBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_half"
+                android:layout_marginTop="@dimen/margin_half"
+                android:gravity="center" />
+
+            <Button
+                android:id="@+id/fr_tsvaa_button_copy"
+                style="@style/AppButton.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:drawableLeft="@drawable/ic_fr_tsvaa_copy"
+                android:drawablePadding="@dimen/padding_half"
+                android:minWidth="0dp"
+                android:text="@string/Copy"
+                tools:ignore="RtlHardcoded" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/fr_tsvaa_button_next"
+        style="@style/AppButton.Bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="@string/Next" />
+
+</LinearLayout>

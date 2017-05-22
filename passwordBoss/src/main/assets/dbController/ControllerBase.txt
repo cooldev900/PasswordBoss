@@ -1,0 +1,134 @@
+﻿CREATE TABLE IF NOT EXISTS `language`  (
+  `uuid` VARCHAR,
+  `code` VARCHAR NOT NULL PRIMARY KEY,
+  `name` VARCHAR ,
+  `translated` BOOLEAN,
+  `translated_name` VARHCAR,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME ,
+  `order` INTEGER ,
+  `active` BOOLEAN DEFAULT 1
+);
+
+CREATE TABLE IF NOT EXISTS `country`  (
+  `uuid` VARCHAR,
+  `code` VARCHAR NOT NULL PRIMARY KEY,
+  `currency` VARCHAR ,
+  `name` VARCHAR ,
+  `language_code` VARCHAR,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME ,
+  `order` INTEGER ,
+  `active` BOOLEAN DEFAULT 1,
+  FOREIGN KEY(`language_code`) REFERENCES language(`code`)
+);
+
+CREATE TABLE IF NOT EXISTS `action` (
+  `id` VARCHAR NOT NULL PRIMARY KEY,
+  `action_type` VARCHAR ,
+  `status` VARCHAR ,
+  `completed_date` DATETIME,
+  `configuration` VARCHAR ,
+  `start_date` DATETIME ,
+  `name` VARCHAR ,
+  `account_e_mail` VARCHAR,
+  `uuid` VARCHAR,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME ,
+  `order` INTEGER ,
+  `active` BOOLEAN DEFAULT 1
+);
+
+CREATE TABLE IF NOT EXISTS `configuration` (
+  `value` VARCHAR ,
+  `key` VARCHAR NOT NULL,
+  `account_e_mail` VARCHAR NOT NULL,
+  `uuid` VARCHAR ,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME ,
+  `order` INTEGER ,
+  `active` BOOLEAN DEFAULT 1,
+  PRIMARY KEY(`account_e_mail`, `key`)
+);
+
+CREATE TABLE IF NOT EXISTS `message_definitions` (
+	`msg_id`	VARCHAR NOT NULL PRIMARY KEY,
+	`msg_type`	VARCHAR NOT NULL,
+	`theme`	VARCHAR NOT NULL,
+	`icon_type`	VARCHAR,
+	`confirm_action`	VARCHAR,
+	`cancel_action`	VARCHAR,
+	`show_reminder`	BOOLEAN NOT NULL DEFAULT 0,
+	`account_status`	BOOLEAN NOT NULL,
+	`subscription_level`	VARCHAR NOT NULL,
+	`start_timer_on`	VARCHAR NOT NULL,
+	`start_delay_minutes`	INTEGER NOT NULL DEFAULT 0,
+	`repeat_delay_minutes`	INTEGER NOT NULL DEFAULT 0,
+	`skip_show_if_late_minutes`	INTEGER NOT NULL DEFAULT 0,
+	`max_rep_cnt`	INTEGER NOT NULL DEFAULT 0,
+	`event_id`	VARCHAR,
+	`event_property`	VARCHAR,
+	`event_value`	VARCHAR,
+	`show_on_no_event`	BOOLEAN NOT NULL DEFAULT 0,
+	`show_on_no_event_delay_minutes`	INTEGER NOT NULL DEFAULT 0,
+  `created_date` DATETIME NOT NULL,
+  `last_modified_date` DATETIME NOT NULL,
+	`active`	BOOLEAN NOT NULL DEFAULT 1
+);
+
+CREATE TABLE IF NOT EXISTS `message_translations` (
+	`msg_id`	VARCHAR NOT NULL,
+	`lang`	VARCHAR NOT NULL,
+	`title`	VARCHAR,
+	`title1`	VARCHAR,
+	`title2`	VARCHAR,
+	`body`	VARCHAR,
+	`body1`	VARCHAR,
+	`body2`	VARCHAR,
+	`confirm_action_text`	VARCHAR,
+	`cancel_action_text`	VARCHAR,
+  `created_date` DATETIME NOT NULL,
+  `last_modified_date` DATETIME NOT NULL,
+	PRIMARY KEY(msg_id,lang),
+	FOREIGN KEY(`msg_id`) REFERENCES message_definitions(`msg_id`)
+);
+
+CREATE TABLE IF NOT EXISTS `message_data` (
+	`msg_id`	VARCHAR NOT NULL PRIMARY KEY,
+	`action_id` VARCHAR,
+	`timer_date`	DATETIME,
+	`last_display_date`	DATETIME,
+	`display_cnt`	INTEGER NOT NULL DEFAULT 0,
+	`event_property`	VARCHAR,
+	`event_value`	VARCHAR,
+	`completed`	BOOLEAN NOT NULL DEFAULT 0,
+  `created_date` DATETIME NOT NULL,
+  `last_modified_date` DATETIME NOT NULL,
+	`active`	BOOLEAN NOT NULL DEFAULT 1,
+	FOREIGN KEY(`msg_id`) REFERENCES message_definitions(`msg_id`),
+	FOREIGN KEY(`action_id`) REFERENCES action(`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `event` (
+  `event_def_id` VARCHAR,
+  `property_key` VARCHAR ,
+  `property_value` VARCHAR ,
+  `installation_id` VARCHAR ,
+  `account` VARCHAR ,
+  `processed` BOOLEAN DEFAULT 0,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME
+);
+
+CREATE TABLE IF NOT EXISTS `event_definition` (
+  `event_def_id` VARCHAR PRIMARY KEY ,
+  `uuid` VARCHAR ,
+  `section_id` VARCHAR ,
+  `section_name` VARCHAR ,
+  `event_id` VARCHAR ,
+  `event_name` VARCHAR ,
+  `collect` BOOLEAN DEFAULT 1,
+  `collect_once` BOOLEAN DEFAULT 0,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME
+);

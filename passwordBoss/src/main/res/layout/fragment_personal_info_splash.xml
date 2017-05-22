@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@color/background_window_white">
+
+    <LinearLayout
+        android:id="@+id/fr_pisp_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding_double"
+        android:paddingRight="@dimen/padding_double">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/fr_pi_splash"/>
+
+        <TextView
+            style="@style/Text.Semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin"
+            android:text="@string/PersonalInfoAddHeadline"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="20sp"/>
+
+        <TextView
+            style="@style/Text.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_half"
+            android:gravity="center"
+            android:text="@string/PersonalInfoAddSubhead"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/fr_pisp_button_add"
+        style="@style/AppButton.Bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="@string/AddPersonalInfo"/>
+
+
+</FrameLayout>
+

@@ -1,0 +1,7 @@
+﻿CREATE TABLE IF NOT EXISTS `site_domains` (
+  `domain` VARCHAR NOT NULL PRIMARY KEY,
+  `uuid` VARCHAR NOT NULL UNIQUE,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME ,
+  `active` BOOLEAN DEFAULT 1
+);

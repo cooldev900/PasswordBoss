@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="dp_1">1dp</dimen>
+
+    <dimen name="margin">16dp</dimen>
+    <dimen name="margin_double">32dp</dimen>
+    <dimen name="margin_half">8dp</dimen>
+    <dimen name="margin_quarter">4dp</dimen>
+    <dimen name="margin_eight">2dp</dimen>
+
+    <dimen name="padding">16dp</dimen>
+    <dimen name="padding_half">8dp</dimen>
+    <dimen name="padding_quarter">4dp</dimen>
+    <dimen name="padding_medium">24dp</dimen>
+    <dimen name="padding_double">32dp</dimen>
+    <dimen name="padding_quadruple">64dp</dimen>
+
+    <dimen name="toolbar_height">56dp</dimen>
+
+    <dimen name="fr_gs_padding_vertical">80dp</dimen>
+    <dimen name="fr_gs_padding_horizontal">@dimen/padding_double</dimen>gi
+
+    <dimen name="fr_si_input_label_text_size">12sp</dimen>
+    <dimen name="fr_si_icon_height">56dp</dimen>
+
+    <dimen name="grid_column_width">100dp</dimen>
+
+    <dimen name="fr_st_row_min_height">48dp</dimen>
+
+    <dimen name="vw_db_button_size">64dp</dimen>
+
+    <dimen name="vw_pk_size">56dp</dimen>
+    <dimen name="vw_pk_text_size">38sp</dimen>
+
+    <dimen name="vw_ps_corner_radius">2dp</dimen>
+
+    <dimen name="vw_ii_stroke_width">1dp</dimen>
+
+    <!-- Password generator screen -->
+    <dimen name="fr_pg_margin_top">62dp</dimen>
+    <dimen name="fr_pg_seekbar_thumb_height">45dp</dimen>
+    <dimen name="fr_pg_seekbar_thumb_width">12dp</dimen>
+    <dimen name="fr_pg_seekbar_thumb">12dp</dimen>
+
+
+    <!-- Login Pin Screen -->
+    <dimen name="txt_pin_login">16sp</dimen>
+
+    <!-- Signup Activity Dimens constants -->
+    <dimen name="txt_pwd_suggestion_size">14sp</dimen>
+    <dimen name="txt_radiobutton_size">13sp</dimen>
+
+    <!-- Login Email Screen -->
+
+    <!-- Header constants for login,Signup -->
+
+    <!-- Setup Complete -->
+
+    <!-- Global Navigation Left Menu -->
+
+    <!-- Secure browser -->
+    <!-- Password Generator -->
+    <dimen name="margin_seekbar_thumb_height">45dp</dimen>
+    <dimen name="edt_pgdialog_height_size">34dp</dimen>
+
+    <!-- AddPassword Vault Screen -->
+    <dimen name="txt_addvault_note_margin">15dp</dimen>
+    <!-- Add favorite screen -->
+
+    <!-- Digital Wallet ItemOverlay Screen -->
+
+    <!-- Personal Info ItemOverlay Screen -->
+
+    <!-- Secure browser Bookmarks -->
+
+    <!-- Account Settings -->
+    <dimen name="txt_about_masterpassword">16sp</dimen>
+    <dimen name="txt_accountsetting_subheading">17sp</dimen>
+    <dimen name="view_masterpassword_top">24dp</dimen>
+    <dimen name="btn_syncnow_width">221dp</dimen>
+    <dimen name="btn_alert_height">50dp</dimen>
+    <dimen name="margin_top_alert">23dp</dimen>
+    <dimen name="margin_top_textalert">30dp</dimen>
+    <dimen name="margin_sides_alert">30dp</dimen>
+
+    <!-- Upgrade activity sizes -->
+    <dimen name="discount_image_size">64dp</dimen>
+    <dimen name="button_min_height">42dp</dimen>
+    <dimen name="button_buy_text_size">16sp</dimen>
+    <dimen name="button_distance">4dp</dimen>
+
+    <!-- Global Sizes -->
+    <dimen name="lin_logo_left">40dp</dimen>
+    <dimen name="lin_logo_right">40dp</dimen>
+
+    <!-- Sign in with Email screen -->
+    <dimen name="lin_footer_bottom">10dp</dimen>
+
+
+    <dimen name="txt_number">30sp</dimen>
+    <dimen name="txt_number_margin">6dp</dimen>
+    <dimen name="txt_skip_margin">22dp</dimen>
+    <dimen name="txt_pinview_margin">10dp</dimen>
+    <dimen name="txt_error_pin">15sp</dimen>
+    <dimen name="txt_select_language">18sp</dimen>
+    <dimen name="dialog_master_password_margin_top">10dp</dimen>
+    <dimen name="dialog_master_password_margin_bottom">23dp</dimen>
+    <dimen name="dialog_master_password_info_bottom">18dp</dimen>
+    <dimen name="dialog_txt_master_password">17sp</dimen>
+    <dimen name="dialog_txt_master_password_info">14sp</dimen>
+    <dimen name="dialog_txt_master_password_ok">18sp</dimen>
+    <dimen name="zero_dp">0dp</dimen>
+
+    <!-- Password Vault, Digital Wallet, Personal Info -->
+
+    <dimen name="number_dimes">60dp</dimen>
+    <dimen name="txt_footer_margin_bottom">12dp</dimen>
+    <dimen name="confirm_password_dialog_padding_left">20dp</dimen>
+    <dimen name="confirm_password_dialog_padding_right">20dp</dimen>
+    <dimen name="confirm_password_dialog_padding_top">5dp</dimen>
+    <dimen name="confirm_password_dialog_padding_bottom">5dp</dimen>
+    <dimen name="lin_doted_pin_margin_bottom">22dp</dimen>
+    <dimen name="ac_spl_logo_target_margin_top">120dp</dimen>
+    <dimen name="space_between_avatars">12dp</dimen>
+
+</resources>

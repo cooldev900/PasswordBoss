@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.passwordboss.android"
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS"/>
+    <uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+
+    <!-- for Samsung badge -->
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+
+    <!-- for htc badge -->
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+
+    <!-- for sony badge -->
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+    <!-- for apex badge -->
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+
+    <!-- for solid badge -->
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+
+    <!-- Permissions for GCM -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+
+    <permission
+        android:name="com.passwordboss.android.permission.C2D_MESSAGE"
+        android:protectionLevel="signature"/>
+
+    <uses-permission android:name="com.passwordboss.android.permission.C2D_MESSAGE"/>
+
+    <uses-feature
+        android:name="android.hardware.location"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false"/>
+
+    <application
+        android:name=".app.App"
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/PasswordBoss"
+        android:theme="@style/AppTheme"
+        tools:replace="android:allowBackup">
+        <activity
+            android:name=".activity.ChangeMasterPasswordActivity"
+            android:theme="@style/AppTheme.Picker"/>
+        <activity android:name=".activity.ChangePinActivity"/>
+        <activity
+            android:name=".activity.ChooseAvatarActivity"
+            android:theme="@style/AppTheme.Picker"/>
+        <activity
+            android:name=".activity.ChooseIconColorActivity"
+            android:theme="@style/AppTheme.Picker"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity
+            android:name=".activity.ChooseFolderActivity"
+            android:theme="@style/AppTheme.Picker"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity
+            android:name=".activity.ChooseSecureItemActivity"
+            android:theme="@style/AppTheme.Picker"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity
+            android:name=".activity.DigitalWalletActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity
+            android:name=".activity.EmergencyActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name=".activity.GetStartedActivity"/>
+        <activity android:name=".activity.FolderActivity"/>
+        <activity
+            android:name=".activity.FolderActivityPickerTheme"
+            android:theme="@style/AppTheme.Picker"/>
+        <activity
+            android:name=".activity.IdentitiesActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name=".activity.IdentityActivity"/>
+        <activity
+            android:name=".activity.ItemTypesActivity"
+            android:theme="@style/AppTheme.Picker"/>
+        <activity
+            android:name=".activity.UnlockActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:name=".activity.ManagerFoldersActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name=".activity.MyDevicesActivity"/>
+        <activity android:name=".activity.PasswordGeneratorActivity"/>
+        <activity
+            android:name=".activity.PasswordsActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity
+            android:name=".activity.PersonalInfoActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name=".activity.MainActivity"/>
+        <activity
+            android:name=".activity.SecureItemActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:name=".activity.SecureItemMenuActivity"
+            android:theme="@style/AppTheme.Picker"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity
+            android:name=".activity.SecureNotesActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name=".activity.SettingItemListActivity"/>
+        <activity
+            android:name=".activity.SignInActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:name=".activity.SignInTwoStepVerificationActivity"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible"/>
+        <activity
+            android:name=".activity.SignUpCreationActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity
+            android:name=".activity.SignUpEmailActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:name=".activity.SignUpPasswordConfirmActivity"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible"/>
+        <activity
+            android:name=".activity.SignUpPasswordActivity"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity
+            android:name=".activity.SignUpPinActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity
+            android:name=".activity.SignUpSuccessfulActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name=".activity.SelectLanguageActivity"/>
+        <activity android:name=".activity.SharedCenterActivity"/>
+        <activity android:name=".activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.TwoStepVerificationActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:name=".activity.VerificationActivity"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity
+            android:name=".activity.UpdateActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+
+        <activity
+            android:name=".activity.UpgradeActivity"
+            android:theme="@style/AppTheme.Picker"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="eacf87aa5f76ed26079ce4c0aacbfa9224fb00ce"/>
+
+    </application>
+
+</manifest>

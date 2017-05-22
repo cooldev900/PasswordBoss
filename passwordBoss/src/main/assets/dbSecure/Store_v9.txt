@@ -1,0 +1,15 @@
+﻿CREATE TABLE IF NOT EXISTS `alert_messages` (
+  `uuid` VARCHAR NOT NULL PRIMARY KEY ,
+  `headline` VARCHAR,
+  `icon_type` VARCHAR,
+  `message` VARCHAR,
+  `message_type` VARCHAR,
+  `status` VARCHAR,
+  `url` VARCHAR,
+  `brand_uuid` VARCHAR,
+  `published_date` DATETIME,
+  `message_seen_date` DATETIME,
+  `order` INTEGER ,
+  `created_date` DATETIME ,
+  `last_modified_date` DATETIME
+);

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            fontPath="@string/font_semibold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_double"
+            android:gravity="center"
+            android:paddingLeft="@dimen/padding_double"
+            android:paddingRight="@dimen/padding_double"
+            android:text="@string/EasyPin"
+            android:textColor="@color/textColorPrimaryDark"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/padding"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/ac_supn_pin_01"
+                style="@style/AppPinInputField" />
+
+            <TextView
+                android:id="@+id/ac_supn_pin_02"
+                style="@style/AppPinInputField" />
+
+            <TextView
+                android:id="@+id/ac_supn_pin_03"
+                style="@style/AppPinInputField" />
+
+            <TextView
+                android:id="@+id/ac_supn_pin_04"
+                style="@style/AppPinInputField" />
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/ac_supn_button_set_pin"
+            style="@style/AppButton.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/padding_half"
+            android:text="@string/SetPin" />
+
+        <com.passwordboss.android.widget.AppPinKeyboardView
+            android:id="@+id/ac_supn_keyboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/ac_supn_button_skip"
+        style="@style/AppButton.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
+        android:text="@string/Skip"
+        tools:ignore="RtlHardcoded" />
+
+    <Button
+        android:id="@+id/ac_supn_button_delete"
+        style="@style/AppButton.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:text="@string/Delete"
+        tools:ignore="RtlHardcoded" />
+</FrameLayout>

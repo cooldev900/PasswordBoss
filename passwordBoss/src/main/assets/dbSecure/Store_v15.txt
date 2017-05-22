@@ -1,0 +1,2 @@
+﻿CREATE INDEX IF NOT EXISTS `secure_item_item` ON `secure_item`(`active`,`secure_item_type_name`,`site_id`);
+CREATE INDEX IF NOT EXISTS `site_uri_host` ON `site_uri`(`active`,`host`);

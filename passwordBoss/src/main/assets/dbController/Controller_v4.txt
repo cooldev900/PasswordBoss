@@ -1,0 +1,1 @@
+﻿ALTER TABLE `country` ADD COLUMN `dialing_code` VARCHAR;

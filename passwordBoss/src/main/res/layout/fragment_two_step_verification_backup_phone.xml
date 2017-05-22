@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_window_grey"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/padding_double"
+            android:paddingRight="@dimen/padding_double">
+
+            <TextView
+                style="@style/Text.Bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:text="@string/TwoStepMobilePhoneNumberScreenFirstMessage"
+                android:textColor="@color/black" />
+
+            <TextView
+                style="@style/Text.Semibold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_half"
+                android:lineSpacingMultiplier="1.2"
+                android:text="@string/TwoStepMobilePhoneNumberScreenSecondMessage" />
+
+            <TextView
+                style="@style/Text.Bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:lineSpacingMultiplier="1.2"
+                android:text="@string/Country" />
+
+
+            <FrameLayout
+                style="@style/AppEditText.RoundedGreenWhiteBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_quarter">
+
+                <Spinner
+                    android:id="@+id/fr_tsvbp_country"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+
+            </FrameLayout>
+
+            <TextView
+                style="@style/Text.Bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:lineSpacingMultiplier="1.2"
+                android:text="@string/PhoneNumber" />
+
+
+            <LinearLayout
+                style="@style/AppEditText.RoundedGreenWhiteBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_quarter">
+
+                <TextView
+                    android:id="@+id/fr_tsvbp_country_code"
+                    style="@style/Text.Semibold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:minEms="3" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#8bd6c5" />
+
+                <EditText
+                    android:id="@+id/fr_tsvbp_phone"
+                    style="@style/Text.Semibold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:hint="@string/PhoneNumber"
+                    android:inputType="phone" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/fr_tsvbp_button_next"
+        style="@style/AppButton.Bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="@string/Next" />
+
+</LinearLayout>

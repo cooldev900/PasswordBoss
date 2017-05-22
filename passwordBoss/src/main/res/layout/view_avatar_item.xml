@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.passwordboss.android.widget.SquareFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:clickable="false"
+             android:focusable="false"
+             android:focusableInTouchMode="false">
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:scaleType="fitXY"
+            android:id="@+id/view_av_img_avatar"
+            android:padding="@dimen/padding_quarter"
+            />
+</com.passwordboss.android.widget.SquareFrameLayout>

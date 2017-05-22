@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout style="@style/AppLabelInputLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/vw_sin_label"
+        fontPath="@string/font_regular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/padding_half"
+        android:drawableRight="@drawable/ic_fr_si_notes"
+        android:gravity="center_vertical"
+        android:paddingBottom="@dimen/padding_half"
+        android:paddingLeft="@dimen/padding_half"
+        android:paddingTop="@dimen/padding_half"
+        android:text="@string/ItemFieldAddNote"
+        android:textColor="@color/textColorAccent"
+        tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+    <EditText
+        android:id="@+id/vw_sin_value"
+        style="@style/SecureItem.Input.EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine|textCapSentences"
+        android:visibility="gone" />
+
+</LinearLayout>

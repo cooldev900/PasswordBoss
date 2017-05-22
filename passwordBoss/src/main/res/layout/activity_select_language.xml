@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:src="@drawable/ac_logo"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/ac_sl_label_prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ac_sl_language_holder"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="@dimen/padding"
+        android:text="@string/SelectLanguageMessage" />
+
+    <FrameLayout
+        android:id="@+id/ac_sl_language_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/margin_double"
+        android:layout_marginRight="@dimen/margin_double"
+        android:background="@drawable/rectangle_rounded_grey"
+        android:paddingBottom="@dimen/padding_quarter"
+        android:paddingTop="@dimen/padding_quarter">
+
+        <Spinner
+            android:id="@+id/ac_sl_language"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/txt_select_language" />
+
+    </FrameLayout>
+
+
+    <Button
+        android:id="@+id/ac_sl_button_next"
+        style="@style/AppButton.Bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/Next" />
+
+</RelativeLayout>

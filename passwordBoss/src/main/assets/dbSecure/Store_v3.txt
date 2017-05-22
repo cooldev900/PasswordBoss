@@ -1,0 +1,2 @@
+﻿ALTER TABLE `secure_item` ADD COLUMN `login_url` VARCHAR;
+ALTER TABLE `site` ADD COLUMN `realm` VARCHAR;

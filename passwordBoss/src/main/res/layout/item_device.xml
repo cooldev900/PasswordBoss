@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/fr_st_row_min_height"
+    android:background="@color/white">
+
+    <com.daimajia.swipe.SwipeLayout android:id="@+id/it_od_swipe"
+        xmlns:swipe="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        swipe:leftEdgeSwipeOffset="0dp"
+        swipe:rightEdgeSwipeOffset="0dp">
+
+        <include layout="@layout/include_swipe_delete" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:descendantFocusability="blocksDescendants"
+            android:focusable="false"
+            android:focusableInTouchMode="false">
+
+            <ImageView
+                android:id="@+id/it_od_device_thumbnail"
+                style="@style/Settings.MyDevices.ItemImage"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                android:id="@+id/it_od_device_name"
+                style="@style/Settings.MyDevices.ItemName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/it_od_last_activity"
+                android:layout_toRightOf="@+id/it_od_device_thumbnail" />
+
+            <TextView
+                android:id="@+id/it_od_last_activity"
+                style="@style/Settings.MyDevices.ItemDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/padding_double" />
+
+            <View
+                android:id="@+id/divider_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/divider_color" />
+
+        </RelativeLayout>
+    </com.daimajia.swipe.SwipeLayout>
+
+</LinearLayout>

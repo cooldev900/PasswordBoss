@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#18ad8c</color>
+    <color name="colorPrimaryDark">#138a70</color>
+    <color name="colorAccent">#5dc5ae</color>
+    <color name="colorAccentDark">#18ad8c</color>
+
+    <color name="floating_button_orange">#ff4100</color>
+    <color name="orange_pressed">#ffbe3000</color>
+
+    <color name="textColor">#474747</color>
+    <color name="textColorLight">#919191</color>
+    <color name="textColorDisabled">#55474747</color>
+
+    <color name="textColorPrimary">@color/colorPrimary</color>
+    <color name="textColorPrimaryDark">@color/colorPrimaryDark</color>
+    <color name="textColorAccent">@color/colorAccentDark</color>
+
+    <color name="background_window_grey">#f1f1f1</color>
+    <color name="background_window_white">@color/white</color>
+    <color name="divider_color">#d9d9d9</color>
+
+    <color name="horizontal_divider_grey">#bbb</color>
+    <color name="vertical_divider_grey">#bbb</color>
+    <color name="dark_grey">#777777</color>
+    <color name="almost_white">#f6f6f6</color>
+
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+
+</resources>
